@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study &amp; Grade Advisor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Module 05 · AI Tools &amp; Mini Project</span>
+      <h1>AI Study &amp; Grade Advisor</h1>
+      <p>Enter your subject scores to get instant grade analytics and an AI-powered personalized study plan.</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Student Input</h2>
+        <form id="advisor-form">
+          <label for="student-name">Student Name</label>
+          <input id="student-name" type="text" placeholder="e.g. Alex Rivera" required />
+
+          <div class="row-header">
+            <span>Subjects &amp; Scores (0–100)</span>
+            <button id="add-row-btn" class="btn btn-secondary btn-sm" type="button">+ Add Subject</button>
+          </div>
+          <div id="subject-rows" class="subject-rows"></div>
+
+          <label for="api-key">Optional Gemini API Key (uses built-in AI coach if blank)</label>
+          <input id="api-key" type="password" placeholder="AIza... (optional)" />
+
+          <p id="error-msg" class="error" hidden></p>
+          <button id="submit-btn" class="btn btn-primary" type="submit">Generate AI Study Plan</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>AI Coach Report</h2>
+        <div id="placeholder" class="placeholder">
+          Fill in your scores and click <strong>Generate AI Study Plan</strong> to see your personalized recommendations.
+        </div>
+
+        <div id="result-box" hidden>
+          <div class="metrics">
+            <div class="metric">
+              <span>Average</span>
+              <strong id="res-avg">—</strong>
+            </div>
+            <div class="metric">
+              <span>Grade</span>
+              <strong id="res-grade">—</strong>
+            </div>
+            <div class="metric">
+              <span>GPA</span>
+              <strong id="res-gpa">—</strong>
+            </div>
+          </div>
+
+          <div class="highlights">
+            <span id="res-strong" class="chip chip-good"></span>
+            <span id="res-weak" class="chip chip-focus"></span>
+          </div>
+
+          <pre id="res-advice" class="advice-box"></pre>
+          <small id="res-source" class="source-note"></small>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
